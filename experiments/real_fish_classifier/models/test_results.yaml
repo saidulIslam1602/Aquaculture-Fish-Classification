@@ -1,0 +1,27 @@
+config: "data:\n  augmentation:\n    brightness: 0.2\n    contrast: 0.2\n    horizontal_flip:\
+  \ 0.5\n    rotation: 15\n    saturation: 0.2\n  image_size:\n  - 224\n  - 224\n\
+  \  batch_size: 32\n  num_workers: 4\n  test_split: 0.1\n  train_split: 0.7\n  val_split:\
+  \ 0.2\nmodel:\n  architecture: resnet50\n  dropout: 0.3\n  num_classes: 31\n  pretrained:\
+  \ true\nproject:\n  description: Fish classification using real Kaggle fish dataset\n\
+  \  name: real-fish-classifier\nproject_name: real-fish-classifier\nspecies:\n  classes:\n\
+  \  - Bangus\n  - Big Head Carp\n  - Black Spotted Barb\n  - Catfish\n  - Climbing\
+  \ Perch\n  - Fourfinger Threadfin\n  - Freshwater Eel\n  - Glass Perchlet\n  - Goby\n\
+  \  - Gold Fish\n  - Gourami\n  - Grass Carp\n  - Green Spotted Puffer\n  - Indian\
+  \ Carp\n  - Indo-Pacific Tarpon\n  - Jaguar Gapote\n  - Janitor Fish\n  - Knifefish\n\
+  \  - Long-Snouted Pipefish\n  - Mosquito Fish\n  - Mudfish\n  - Mullet\n  - Pangasius\n\
+  \  - Perch\n  - Scat Fish\n  - Silver Barb\n  - Silver Carp\n  - Silver Perch\n\
+  \  - Snakehead\n  - Tenpounder\n  - Tilapia\ntraining:\n  epochs: 20\n  learning_rate:\
+  \ 0.001\n  optimizer: adam\n  scheduler: cosine\n  weight_decay: 0.0001\n  gradient_clipping:\
+  \ 1.0\n  early_stopping:\n    patience: 7\n    monitor: val_loss\n    mode: min\n\
+  \    min_delta: 0.001\nlogging:\n  use_wandb: false\n  use_tensorboard: true\n \
+  \ log_frequency: 50\n  save_frequency: 1\n  save_model_frequency: 1\nhardware:\n\
+  \  device: auto\n  mixed_precision: true\nvalidation:\n  frequency: 1\n  save_best_model:\
+  \ true\n  metrics:\n  - accuracy\n  - f1_score\n  - precision\n  - recall\npaths:\n\
+  \  models: models\n  logs: logs\n  results: results\n  checkpoints: checkpoints\n\
+  experiment_name: real_fish_classifier\n"
+metrics:
+  accuracy: 0.5947136563876652
+  f1_score: 0.5752615190081652
+  loss: 1.3680382401778781
+  precision: 0.5889992081581447
+  recall: 0.5947136563876652

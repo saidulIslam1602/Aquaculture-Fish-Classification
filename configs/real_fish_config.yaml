@@ -1,0 +1,95 @@
+data:
+  augmentation:
+    brightness: 0.2
+    contrast: 0.2
+    horizontal_flip: 0.5
+    rotation: 15
+    saturation: 0.2
+  image_size:
+  - 224
+  - 224
+  batch_size: 32
+  num_workers: 4
+  test_split: 0.1
+  train_split: 0.7
+  val_split: 0.2
+model:
+  architecture: resnet50
+  dropout: 0.3
+  num_classes: 31
+  pretrained: true
+project:
+  description: Fish classification using real Kaggle fish dataset
+  name: real-fish-classifier
+project_name: real-fish-classifier
+species:
+  classes:
+  - Bangus
+  - Big Head Carp
+  - Black Spotted Barb
+  - Catfish
+  - Climbing Perch
+  - Fourfinger Threadfin
+  - Freshwater Eel
+  - Glass Perchlet
+  - Goby
+  - Gold Fish
+  - Gourami
+  - Grass Carp
+  - Green Spotted Puffer
+  - Indian Carp
+  - Indo-Pacific Tarpon
+  - Jaguar Gapote
+  - Janitor Fish
+  - Knifefish
+  - Long-Snouted Pipefish
+  - Mosquito Fish
+  - Mudfish
+  - Mullet
+  - Pangasius
+  - Perch
+  - Scat Fish
+  - Silver Barb
+  - Silver Carp
+  - Silver Perch
+  - Snakehead
+  - Tenpounder
+  - Tilapia
+training:
+  epochs: 20
+  learning_rate: 0.001
+  optimizer: adam
+  scheduler: cosine
+  weight_decay: 0.0001
+  gradient_clipping: 1.0
+  early_stopping:
+    patience: 7
+    monitor: val_loss
+    mode: min
+    min_delta: 0.001
+
+logging:
+  use_wandb: false
+  use_tensorboard: true
+  log_frequency: 50
+  save_frequency: 1
+  save_model_frequency: 1
+
+hardware:
+  device: auto
+  mixed_precision: true
+
+validation:
+  frequency: 1
+  save_best_model: true
+  metrics:
+    - accuracy
+    - f1_score
+    - precision
+    - recall
+
+paths:
+  models: models
+  logs: logs
+  results: results
+  checkpoints: checkpoints

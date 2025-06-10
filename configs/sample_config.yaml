@@ -1,0 +1,32 @@
+
+# Sample configuration for testing with small dataset
+project:
+  name: "sample-fish-classifier"
+  description: "Sample aquaculture fish classification"
+
+model:
+  architecture: "resnet18"  # Smaller model for testing
+  pretrained: true
+  num_classes: 5  # Reduced for sample dataset
+  dropout: 0.3
+
+training:
+  epochs: 5  # Few epochs for testing
+  learning_rate: 0.001
+  batch_size: 8  # Small batch for testing
+  optimizer: "adam"
+  scheduler: "cosine"
+
+data:
+  image_size: [224, 224]
+  train_split: 0.7
+  val_split: 0.2
+  test_split: 0.1
+
+species:
+  classes:
+    - "Atlantic_Salmon"
+    - "Rainbow_Trout" 
+    - "Cod"
+    - "Sea_Bass"
+    - "Sea_Bream"

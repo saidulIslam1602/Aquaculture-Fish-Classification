@@ -45,11 +45,12 @@ venv.bak/
 .DS_Store
 Thumbs.db
 
-# Data and models (optional - uncomment if you don't want to track these)
-# data/raw/
-# data/processed/
-# models/*.pth
-# results/
+# Data and models (large files excluded)
+data/raw/
+data/processed/
+experiments/*/models/*.pth
+!experiments/*/models/*.yaml
+!experiments/*/models/*.json
 
 # Weights & Biases
 wandb/

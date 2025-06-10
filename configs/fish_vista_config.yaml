@@ -1,0 +1,41 @@
+data:
+  augmentation:
+    brightness: 0.2
+    contrast: 0.2
+    horizontal_flip: 0.5
+    rotation: 15
+    saturation: 0.2
+  image_size:
+  - 224
+  - 224
+  test_split: 0.1
+  train_split: 0.7
+  val_split: 0.2
+model:
+  architecture: resnet50
+  dropout: 0.3
+  num_classes: 10
+  pretrained: true
+project_name: fish-vista-classifier
+project:
+  description: Fish classification using Fish-Vista inspired dataset
+  name: fish-vista-classifier
+species:
+  classes:
+  - Atlantic_Salmon
+  - Rainbow_Trout
+  - Cod
+  - Sea_Bass
+  - Sea_Bream
+  - Turbot
+  - Halibut
+  - Tuna
+  - Mackerel
+  - Other
+training:
+  batch_size: 16
+  early_stopping_patience: 5
+  epochs: 25
+  learning_rate: 0.001
+  optimizer: adam
+  scheduler: cosine
