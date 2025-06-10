@@ -48,7 +48,7 @@ The default configuration supports 10 common aquaculture species:
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/your-username/aquaculture-fish-classifier.git
+git clone https://github.com/saidulIslam1602/Aquaculture-Fish-Classification.git
 cd aquaculture-fish-classifier
 ```
 
@@ -342,17 +342,13 @@ trainer.train(train_loader, val_loader, save_dir="phase2")
 
 ### Docker Deployment
 ```bash
-# Build Docker image
-docker build -t fish-classifier .
-
-# Run container
-docker run -p 8000:8000 -v /path/to/models:/app/models fish-classifier
+# Docker support available - Dockerfile would need to be created
+# docker build -t fish-classifier .
+# docker run -p 8000:8000 -v /path/to/models:/app/models fish-classifier
 ```
 
 ### Cloud Deployment
-- **AWS SageMaker**: Production-ready inference endpoints
-- **Google Cloud AI Platform**: Scalable model serving
-- **Azure ML**: Enterprise machine learning platform
+The system is designed to be compatible with major cloud platforms (specific deployment configurations would need to be implemented).
 
 ## 🤝 Contributing
 
@@ -383,17 +379,11 @@ flake8 src/ scripts/
 
 ## 📖 Documentation
 
-For detailed documentation, visit our [GitHub Wiki](https://github.com/your-username/aquaculture-fish-classifier/wiki).
-
-### Available Guides
-- [Dataset Preparation Guide](https://github.com/your-username/aquaculture-fish-classifier/wiki/Dataset-Preparation)
-- [Model Training Tutorial](https://github.com/your-username/aquaculture-fish-classifier/wiki/Training-Tutorial)
-- [API Integration Guide](https://github.com/your-username/aquaculture-fish-classifier/wiki/API-Integration)
-- [Deployment Guide](https://github.com/your-username/aquaculture-fish-classifier/wiki/Deployment)
+All documentation is contained within this README file and the code comments.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
 
 ## 🙏 Acknowledgments
 
@@ -405,9 +395,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For questions, suggestions, or collaboration opportunities:
 
-- **Project Lead**: [Your Name](mailto:your.email@example.com)
-- **Issues**: [GitHub Issues](https://github.com/your-username/aquaculture-fish-classifier/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/your-username/aquaculture-fish-classifier/discussions)
+- **GitHub Repository**: [Aquaculture Fish Classification](https://github.com/saidulIslam1602/Aquaculture-Fish-Classification)
+- **Issues**: [GitHub Issues](https://github.com/saidulIslam1602/Aquaculture-Fish-Classification/issues)
 
 ---
 
