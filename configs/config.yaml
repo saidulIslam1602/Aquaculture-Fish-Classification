@@ -1,0 +1,96 @@
+# Aquaculture Fish Classification Configuration
+project_name: "aquaculture-fish-classifier"
+experiment_name: "baseline_resnet50"
+
+# Data Configuration
+data:
+  dataset_path: "data/raw/fish_images"
+  processed_path: "data/processed"
+  image_size: [224, 224]
+  batch_size: 32
+  num_workers: 4
+  train_split: 0.7
+  val_split: 0.15
+  test_split: 0.15
+  augmentation:
+    horizontal_flip: 0.5
+    vertical_flip: 0.2
+    rotation: 15
+    brightness: 0.2
+    contrast: 0.2
+    saturation: 0.2
+    hue: 0.1
+
+# Model Configuration
+model:
+  architecture: "resnet50"
+  pretrained: True
+  num_classes: 10  # Adjust based on your fish species
+  dropout: 0.3
+  freeze_backbone: False
+
+# Training Configuration
+training:
+  epochs: 100
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  optimizer: "adam"
+  scheduler: "cosine"
+  early_stopping:
+    patience: 15
+    min_delta: 0.001
+  gradient_clipping: 1.0
+
+# Validation Configuration
+validation:
+  frequency: 1  # Validate every N epochs
+  save_best_model: True
+  metrics: ["accuracy", "f1_score", "precision", "recall"]
+
+# Logging Configuration
+logging:
+  use_wandb: True
+  use_tensorboard: True
+  log_frequency: 10  # Log every N batches
+  save_model_frequency: 10  # Save model every N epochs
+
+# Paths
+paths:
+  models: "models"
+  logs: "logs"
+  results: "results"
+  checkpoints: "checkpoints"
+
+# Hardware Configuration
+hardware:
+  device: "auto"  # auto, cpu, cuda
+  mixed_precision: True
+  compile_model: False  # PyTorch 2.0 compilation
+
+# Fish Species (customize based on your specific use case)
+species:
+  classes:
+    - "Atlantic_Salmon"
+    - "Rainbow_Trout"
+    - "Cod"
+    - "Sea_Bass"
+    - "Sea_Bream"
+    - "Turbot"
+    - "Halibut"
+    - "Tuna"
+    - "Mackerel"
+    - "Other"
+
+# Data Quality and Monitoring
+data_quality:
+  min_image_size: [100, 100]
+  max_image_size: [2000, 2000]
+  check_corruption: True
+  remove_duplicates: True
+
+# Deployment Configuration
+deployment:
+  model_format: "torchscript"
+  api_port: 8000
+  batch_inference: True
+  confidence_threshold: 0.8 
